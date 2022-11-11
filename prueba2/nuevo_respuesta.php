@@ -7,12 +7,12 @@
     echo "</pre>";
 
     $name = $_POST["nombre"];
-    $email = $_POST["apellido"];
-    $course = $_POST["Telefono"];
-    $pass = $_POST["Correo"];
+    $email = $_POST["correo"];
+    $course = $_POST["curso"];
+    $pass = $_POST["password"];
 
     //Primer Paso - Generar la consulta
-    $consulta = "INSERT INTO clientes (nombre, apellido, Telefono, Correo) VALUES ('".$name."', '".$email."','".$course."','".$pass."')";
+    $consulta = "INSERT INTO usuarios (nombre, correo, curso, pass) VALUES ('".$name."', '".$email."','".$course."','".$pass."')";
 
     //Segundo Paso - Prepara la consulta
     $query = $bd->prepare($consulta);
@@ -20,6 +20,6 @@
     //Tercer Paso - Ejecutar la consulta
     $query->execute();
 
-    header("Location:cliente.php");
+    header("Location:ver.php");
 
 ?>

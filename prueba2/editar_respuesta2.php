@@ -10,16 +10,17 @@
     $email = $_POST["apellido"];
     $course = $_POST["Telefono"];
     $pass = $_POST["Correo"];
+    $id = $_POST["id"];
 
-    //Primer Paso - Generar la consulta
-    $consulta = "INSERT INTO clientes (nombre, apellido, Telefono, Correo) VALUES ('".$name."', '".$email."','".$course."','".$pass."')";
+    $consulta = "UPDATE clientes SET nombre = '" . $name . "', apellido = '" . $email. "', Telefono = '" . $course . "', Correo = '" . $pass . "' WHERE id = " . $id;
 
-    //Segundo Paso - Prepara la consulta
+    //echo $consulta;
+
     $query = $bd->prepare($consulta);
 
-    //Tercer Paso - Ejecutar la consulta
     $query->execute();
 
     header("Location:cliente.php");
 
+    
 ?>
